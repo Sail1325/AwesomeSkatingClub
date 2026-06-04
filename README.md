@@ -1,1 +1,1 @@
-# IndusFigureSkatingClub
+# AwesomeSkatingClub
