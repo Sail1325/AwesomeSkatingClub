@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your Club Name] - Official Website</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS Reset and Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7fa;
+        }
+
+        /* --- Utility Classes for Styling Consistency --- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #1a3a6f; /* Deep Blue */
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #ff6b00; /* Accent Orange */
+            margin: 10px auto 0;
+        }
+
+        /* --- Navigation Bar Styling --- */
+        header {
+            background: #fff;
+            color: #1a3a6f;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8em;
+            color: #ff6b00; /* Accent Color for Logo */
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6b00;
+        }
+
+        /* --- Hero Section Styling (The Big Banner) --- */
+        #hero {
+            background: url('https://via.placeholder.com/1600x600?text=Your+Club+Banner+Image') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        /* Overlay to make text readable over a busy image */
+        #hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            z-index: 10; /* Ensures content is above the overlay */
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.1); /* Slight background for text pop */
+            border-radius: 10px;
+        }
+
+        .hero-content h2 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .hero-content p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+        
+        /* --- Call to Action Button --- */
+        .btn {
+            display: inline-block;
+            background: #ff6b00; /* Accent Orange */
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #e65c00;
+            transform: translateY(-2px);
+        }
+
+
+        /* --- General Section Styling --- */
+        section {
+            padding: 80px 0;
+        }
+
+        #about {
+            background-color: #fff;
+        }
+        
+        #events {
+            background-color: #e9ecef; /* Light grey background for contrast */
+        }
+
+        /* --- Grid Layouts (For Features/Events) --- */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: #1a3a6f;
+            margin-bottom: 15px;
+        }
+
+        /* --- Footer Styling --- */
+        footer {
+            background: #2c3e50; /* Dark background for footer */
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            border-bottom: 1px solid #4a627b;
+            padding-bottom: 30px;
+        }
+
+        .footer-col {
+            min-width: 200px;
+            text-align: left;
+        }
+
+        .footer-col h4 {
+            color: #ff6b00;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .footer-col a, .footer-col p {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+
+        /* --- Responsiveness (Basic Mobile Adjustments) --- */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo h1 {
+                margin-bottom: 10px;
+            }
+            nav a {
+                display: block; /* Stack links vertically on small screens */
+                margin: 10px 0;
+            }
+
+            .hero-content h2 {
+                font-size: 2.5em;
+            }
+            .section-title {
+                font-size: 2em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 1. HEADER AND NAVIGATION -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>The Awesome Club</h1>
+            </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#events">Events</a>
+                <a href="#mission">Mission</a>
+                <a href="#contact-section">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. HERO/BANNER SECTION -->
+    <section id="hero">
+        <div class="hero-content">
+            <h2>Welcome to The Ultimate Club Experience!</h2>
+            <p>Connecting passionate minds and building a stronger community together.</p>
+            <a href="#about" class="btn">Join Us Today</a>
+        </div>
+    </section>
+
+    <!-- 3. ABOUT US SECTION -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Who Are We?</h2>
+            <p style="text-align: center; max-width: 800px; margin: -20px auto 40px; font-size: 1.1em;">
+                Founded in [Year], The Awesome Club has grown from a small gathering into a vibrant community dedicated to [Club Purpose, e.g., fostering creativity, promoting fitness, learning about tech]. We believe that connection sparks innovation!
+            </p>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Community</h3>
+                    <p>A supportive network where members from all backgrounds can connect and grow.</p>
+                </div>
+                <div class="card">
+                    <h3>Activities</h3>
+                    <p>From weekly meetups to large annual galas, there’s something for everyone's interest.</p>
+                </div>
+                <div class="card">
+                    <h3>Impact</h3>
+                    <p>Together, we aim to make a positive difference in our local community and industry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. MISSION/VALUES SECTION (Can be merged with About) -->
+    <section id="mission" style="background-color: #eef; text-align: center;">
+         <div class="container">
+            <h2 class="section-title">Our Core Values</h2>
+             <!-- Simple list format for values -->
+            <p style="font-size: 1.2em; max-width: 700px; margin: -30px auto 40px;">
+                We are built on the pillars of **Inclusion**, **Excellence**, and **Mutual Respect**. Every member contributes to making us better.
+            </p>
+        </div>
+    </section>
+
+    <!-- 5. EVENTS SECTION -->
+    <section id="events">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            
+            <div class="grid-3" style="max-width: none;"> <!-- Override container limit for full width events listing -->
+                
+                <!-- Event Card 1 -->
+                <div class="card" style="border-left: 5px solid #ff6b00; background: white;">
+                    <h3>Annual Gala Mixer</h3>
+                    <p><small>🗓️ Date: October 28, 2024</small></p>
+                    <p>Join us for an evening of music, networking, and celebration. Tickets available now!</p>
+                    <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9em;">RSVP Now</a>
+                </div>
+
+                 <!-- Event Card 2 -->
+                <div class="card" style="border-left: 5px solid #1a3a6f; background: white;">
+                    <h3>Skill Workshop: Web Basics</h3>
+                    <p><small>🗓️ Date: November 10, 2024</small></p>
+                    <p>Learn the fundamentals of HTML and CSS in a fun, hands-on session led by local experts.</p>
+                     <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9em;">View Details</a>
+                </div>
+
+                 <!-- Event Card 3 -->
+                <div class="card" style="border-left: 5px solid #4CAF50; background: white;">
+                    <h3>Monthly Board Meeting</h3>
+                    <p><small>🗓️ Date: November 3, 2024</small></p>
+                    <p>All members are welcome to attend! Come share your ideas and help shape the future of the club.</p>
+                     <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9em;">Get Agenda</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 6. CONTACT SECTION (Slightly different styling to differentiate) -->
+     <section id="contact-section" style="padding: 80px 0; text-align: center;">
+        <div class="container">
+            <h2 class="section-title">Get Involved</h2>
+            <p style="font-size: 1.2em; margin-bottom: 40px;">Have questions, want to sponsor an event, or just want to say hello? We're here for you!</p>
+
+            <!-- Simple Form Placeholder -->
+            <form style="max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <input type="text" placeholder="Your Name" required style="width: 98%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+                <input type="email" placeholder="Your Email Address" required style="width: 98%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
+                <textarea placeholder="Your Message or Inquiry..." rows="6" required style="width: 98%; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+
+        </div>
+    </section>
+
+
+    <!-- 7. FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4>The Awesome Club</h4>
+                <p style="font-size: 1.1em;">Building community, one connection at a time since [Year].</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="#about">About Us</a><br>
+                <a href="#events">Events Calendar</a><br>
+                <a href="#contact-section">Membership Portal</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect With Us</h4>
+                <p>Email: contact@[yourclub].org</p>
+                <p>Phone: (555) 123-4567</p>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a><br>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+
+        <p style="margin-top: 30px; font-size: 0.9em;">&copy; <span id="year"></span> The Awesome Club. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple JavaScript to update the copyright year automatically
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
