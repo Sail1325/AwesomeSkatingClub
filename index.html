@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AwesomeSkatingClub</title>
+    <title>AwesomeSkatingClub - Blue Edition</title>
     <!-- Google Fonts for better typography -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* --- Color Palette Update (Blue Theme) --- */
+        :root {
+            --primary-blue: #1a3a6f; /* Deep Blue - Main Headings/Accents */
+            --secondary-blue: #2c7bb6; /* Medium Blue - Buttons, Hover */
+            --light-bg: #eaf4ff; /* Very light blue background */
+            --text-dark: #333;
+            --accent-orange: #ff9800; /* Keeping a slight contrast accent for CTAs if needed, but leaning blue */
+        }
+
         /* --- CSS Reset and Global Styles --- */
         * {
             margin: 0;
@@ -17,8 +26,8 @@
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f4f7fa;
+            color: var(--text-dark);
+            background-color: #f4f7fa; /* Kept light background */
         }
 
         /* --- Utility Classes for Styling Consistency --- */
@@ -33,7 +42,7 @@
             text-align: center;
             font-size: 2.5em;
             margin-bottom: 40px;
-            color: #1a3a6f; /* Deep Blue */
+            color: var(--primary-blue);
             position: relative;
         }
         .section-title::after {
@@ -41,30 +50,31 @@
             display: block;
             width: 80px;
             height: 3px;
-            background: #ff6b00; /* Accent Orange */
+            background: var(--secondary-blue); /* Blue accent line */
             margin: 10px auto 0;
         }
 
         /* --- Navigation Bar Styling --- */
         header {
             background: #fff;
-            color: #1a3a6f;
+            color: var(--primary-blue);
             padding: 15px 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 1000; /* Increased z-index */
         }
 
         header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px; /* Added padding to container inside header */
         }
 
         .logo h1 {
             font-size: 1.8em;
-            color: #ff6b00; /* Accent Color for Logo */
+            color: var(--primary-blue);
         }
 
         nav a {
@@ -76,7 +86,7 @@
         }
 
         nav a:hover {
-            color: #ff6b00;
+            color: var(--secondary-blue); /* Blue hover */
         }
 
         /* --- Hero Section Styling (The Big Banner) --- */
@@ -99,18 +109,16 @@
         }
 
         .hero-content {
-            z-index: 10; /* Ensures content is above the overlay */
+            z-index: 10;
             max-width: 800px;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.1); /* Slight background for text pop */
-            border-radius: 10px;
         }
 
         .hero-content h2 {
             font-size: 3.5em;
             margin-bottom: 15px;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         .hero-content p {
@@ -122,7 +130,7 @@
         /* --- Call to Action Button --- */
         .btn {
             display: inline-block;
-            background: #ff6b00; /* Accent Orange */
+            background: var(--secondary-blue); /* Blue CTA button */
             color: white;
             padding: 12px 30px;
             text-decoration: none;
@@ -134,7 +142,7 @@
         }
 
         .btn:hover {
-            background: #e65c00;
+            background: var(--primary-blue); /* Darker blue on hover */
             transform: translateY(-2px);
         }
 
@@ -149,7 +157,7 @@
         }
         
         #events {
-            background-color: #e9ecef; /* Light grey background for contrast */
+            background-color: var(--light-bg); /* Light blue background for contrast */
         }
 
         /* --- Grid Layouts (For Features/Events) --- */
@@ -166,21 +174,22 @@
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             transition: transform 0.3s;
+            border-top: 5px solid var(--secondary-blue); /* Blue border accent */
         }
         
         .card:hover {
              transform: translateY(-5px);
-             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
         .card h3 {
-            color: #1a3a6f;
+            color: var(--primary-blue);
             margin-bottom: 15px;
         }
 
-        /* --- Footer Styling --- */
+        /* --- Footer Styling (Blue Themed) --- */
         footer {
-            background: #2c3e50; /* Dark background for footer */
+            background: var(--primary-blue); /* Deep Blue background for footer */
             color: white;
             padding: 40px 0;
             text-align: center;
@@ -191,7 +200,7 @@
             justify-content: space-around;
             flex-wrap: wrap;
             gap: 30px;
-            border-bottom: 1px solid #4a627b;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Light divider */
             padding-bottom: 30px;
         }
 
@@ -201,16 +210,39 @@
         }
 
         .footer-col h4 {
-            color: #ff6b00;
+            color: var(--secondary-blue); /* Blue heading in footer */
             margin-bottom: 15px;
             font-size: 1.3em;
         }
 
+        /* Footer Links Styling */
         .footer-col a, .footer-col p {
             display: block;
             color: #ccc;
             text-decoration: none;
             padding: 5px 0;
+        }
+        .footer-col a:hover {
+             color: white; /* White on hover for visibility */
+        }
+
+        /* --- Contact Form Styling (Blue Themed) --- */
+        #contact-section form input[type="text"],
+        #contact-section form input[type="email"],
+        #contact-section form textarea {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--secondary-blue);
+            border-radius: 5px;
+            width: calc(100% - 24px); /* Adjust width for padding */
+        }
+        #contact-section form button {
+             background: var(--primary-blue);
+             color: white;
+             padding: 12px 30px;
+             border: none;
+             cursor: pointer;
+             border-radius: 50px;
         }
 
         /* --- Responsiveness (Basic Mobile Adjustments) --- */
@@ -220,7 +252,7 @@
                 text-align: center;
             }
             .logo h1 {
-                margin-bottom: 10px;
+                margin-bottom: 15px;
             }
             nav a {
                 display: block; /* Stack links vertically on small screens */
@@ -234,7 +266,6 @@
                 font-size: 2em;
             }
         }
-
     </style>
 </head>
 <body>
@@ -268,33 +299,32 @@
         <div class="container">
             <h2 class="section-title">Who Are We?</h2>
             <p style="text-align: center; max-width: 800px; margin: -20px auto 40px; font-size: 1.1em;">
-                Founded in [Year], The Awesome Club has grown from a small gathering into a vibrant community dedicated to [Club Purpose, e.g., fostering creativity, promoting fitness, learning about tech]. We believe that connection sparks innovation!
+                Founded in [Year], The Awesome Club has grown from a small gathering into a vibrant community dedicated to fostering connection and shared growth across all disciplines.
             </p>
 
             <div class="grid-3">
                 <div class="card">
                     <h3>Community</h3>
-                    <p>A supportive network where members from all backgrounds can connect and grow.</p>
+                    <p>A supportive network where members from all backgrounds can connect and grow together.</p>
                 </div>
                 <div class="card">
                     <h3>Activities</h3>
-                    <p>From weekly meetups to large annual galas, there’s something for everyone's interest.</p>
+                    <p>From weekly meetups to large annual galas, we have an activity for every interest level.</p>
                 </div>
                 <div class="card">
                     <h3>Impact</h3>
-                    <p>Together, we aim to make a positive difference in our local community and industry.</p>
+                    <p>Together, we aim to make a positive difference in our local community and professional fields.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. MISSION/VALUES SECTION (Can be merged with About) -->
-    <section id="mission" style="background-color: #eef; text-align: center;">
+    <!-- 4. MISSION/VALUES SECTION -->
+    <section id="mission" style="background-color: var(--light-bg);">
          <div class="container">
             <h2 class="section-title">Our Core Values</h2>
-             <!-- Simple list format for values -->
-            <p style="font-size: 1.2em; max-width: 700px; margin: -30px auto 40px;">
-                We are built on the pillars of **Inclusion**, **Excellence**, and **Mutual Respect**. Every member contributes to making us better.
+             <p style="font-size: 1.3em; max-width: 800px; margin: -20px auto 40px; text-align: center;">
+                We are built on the pillars of **Inclusion**, **Excellence**, and **Mutual Respect**. Every member contributes to making us better, together.
             </p>
         </div>
     </section>
@@ -304,30 +334,30 @@
         <div class="container">
             <h2 class="section-title">Upcoming Events</h2>
             
-            <div class="grid-3" style="max-width: none;"> <!-- Override container limit for full width events listing -->
+            <div class="grid-3">
                 
                 <!-- Event Card 1 -->
-                <div class="card" style="border-left: 5px solid #ff6b00; background: white;">
+                <div class="card" style="border-top: 5px solid var(--secondary-blue);">
                     <h3>Annual Gala Mixer</h3>
                     <p><small>🗓️ Date: October 28, 2024</small></p>
-                    <p>Join us for an evening of music, networking, and celebration. Tickets available now!</p>
-                    <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9em;">RSVP Now</a>
+                    <p>Join us for an evening of music, networking, and celebration. Tickets are selling fast!</p>
+                    <a href="#" class="btn" style="background: var(--secondary-blue); font-size: 0.9em;">RSVP Now</a>
                 </div>
 
                  <!-- Event Card 2 -->
-                <div class="card" style="border-left: 5px solid #1a3a6f; background: white;">
-                    <h3>Skill Workshop: Web Basics</h3>
+                <div class="card" style="border-top: 5px solid var(--primary-blue);">
+                    <h3>Skill Workshop: Blueprints</h3>
                     <p><small>🗓️ Date: November 10, 2024</small></p>
-                    <p>Learn the fundamentals of HTML and CSS in a fun, hands-on session led by local experts.</p>
-                     <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9em;">View Details</a>
+                    <p>Learn the fundamentals of [Topic] in a fun, hands-on session led by industry leaders.</p>
+                     <a href="#" class="btn" style="background: var(--secondary-blue); font-size: 0.9em;">View Details</a>
                 </div>
 
                  <!-- Event Card 3 -->
-                <div class="card" style="border-left: 5px solid #4CAF50; background: white;">
+                <div class="card" style="border-top: 5px solid #4CAF50;">
                     <h3>Monthly Board Meeting</h3>
                     <p><small>🗓️ Date: November 3, 2024</small></p>
                     <p>All members are welcome to attend! Come share your ideas and help shape the future of the club.</p>
-                     <a href="#" class="btn" style="padding: 8px 20px; font-size: 0.9em;">Get Agenda</a>
+                     <a href="#" class="btn" style="background: var(--secondary-blue); font-size: 0.9em;">Get Agenda</a>
                 </div>
 
             </div>
@@ -335,18 +365,18 @@
     </section>
 
 
-    <!-- 6. CONTACT SECTION (Slightly different styling to differentiate) -->
-     <section id="contact-section" style="padding: 80px 0; text-align: center;">
+    <!-- 6. CONTACT SECTION -->
+    <section id="contact-section" style="padding: 80px 0; background-color: #fff;">
         <div class="container">
-            <h2 class="section-title">Get Involved</h2>
-            <p style="font-size: 1.2em; margin-bottom: 40px;">Have questions, want to sponsor an event, or just want to say hello? We're here for you!</p>
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="font-size: 1.2em; margin-bottom: 40px; text-align: center;">Have questions about membership, sponsorship, or want to share an idea? We're ready to listen!</p>
 
-            <!-- Simple Form Placeholder -->
-            <form style="max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <input type="text" placeholder="Your Name" required style="width: 98%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
-                <input type="email" placeholder="Your Email Address" required style="width: 98%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px;">
-                <textarea placeholder="Your Message or Inquiry..." rows="6" required style="width: 98%; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
-                <button type="submit" class="btn">Send Message</button>
+            <!-- Simple Form -->
+            <form style="max-width: 600px; margin: auto;">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email Address" required>
+                <textarea placeholder="Tell us about your inquiry..." rows="6" required></textarea>
+                <button type="submit" class="btn">Send Inquiry</button>
             </form>
 
         </div>
@@ -362,28 +392,36 @@
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
-                <a href="#about">About Us</a><br>
-                <a href="#events">Events Calendar</a><br>
-                <a href="#contact-section">Membership Portal</a>
+                <!-- Removed specific links as requested -->
+                <a href="#about">About Our Mission</a>
+                <a href="#events">See Upcoming Events</a>
+                <a href="#contact-section">Become a Member</a>
             </div>
             <div class="footer-col">
-                <h4>Connect With Us</h4>
+                <h4>Contact Details</h4>
                 <p>Email: contact@[yourclub].org</p>
                 <p>Phone: (555) 123-4567</p>
             </div>
             <div class="footer-col">
-                <h4>Legal</h4>
-                <a href="#">Privacy Policy</a><br>
-                <a href="#">Terms of Service</a>
+                <h4>Support</h4>
+                <!-- Removed Legal links as requested -->
+                <p style="font-size: 0.9em;">For partnership inquiries, please email us.</p>
             </div>
         </div>
 
-        <p style="margin-top: 30px; font-size: 0.9em;">&copy; <span id="year"></span> The Awesome Club. All rights reserved.</p>
+        <!-- Updated Copyright Text -->
+        <p id="year" style="margin-top: 30px; font-size: 0.9em;">&copy; <span class="copyright-placeholder">[Current Year]</span> The Awesome Club. Test website.</p>
     </footer>
 
     <script>
-        // Simple JavaScript to update the copyright year automatically
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Simple JavaScript to update the copyright year and placeholder text
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYear = new Date().getFullYear();
+            const footerCopyrightElement = document.querySelector('#year');
+            
+            // Replace the static [Current Year] with the actual year
+            footerCopyrightElement.innerHTML = `&copy; ${currentYear} The Awesome Club. Test website.`;
+        });
     </script>
 
 </body>
